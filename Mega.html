@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Шпаргалка</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --accent-color: #4a90e2;
+            --nav-bg: #f0f0f0;
+        }
+
+        body.dark {
+            --bg-color: #1e1e1e;
+            --text-color: #f0f0f0;
+            --accent-color: #6ec1ff;
+            --nav-bg: #2d2d2d;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: var(--nav-bg);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: var(--bg-color);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+        }
+
+        ul {
+            line-height: 1.6;
+        }
+
+        pre {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Шпаргалка по базовому Python</h1>
+    <p>Подробные примеры и методы для каждого типа данных</p>
+</header>
+
+<nav>
+    <a href="#strings">Строки</a>
+    <a href="#numbers">Числа</a>
+    <a href="#lists">Списки</a>
+    <a href="#tuples">Кортежи</a>
+    <a href="#sets">Множества</a>
+    <a href="#dictionaries">Словари</a>
+</nav>
+
+<!-- Строки -->
+<section id="strings">
+    <h2>📝 Строки (str)</h2>
+    <ul>
+        <li><code>str.upper()</code> – преобразует все символы в верхний регистр</li>
+        <li><code>str.lower()</code> – преобразует все символы в нижний регистр</li>
+        <li><code>str.strip()</code> – удаляет пробелы/переводы строк по краям строки</li>
+        <li><code>str.lstrip()</code> – удаляет пробелы слева</li>
+        <li><code>str.rstrip()</code> – удаляет пробелы справа</li>
+        <li><code>str.replace(old, new)</code> – заменяет подстроку на другую</li>
+        <li><code>str.split(separator)</code> – разбивает строку на список по разделителю</li>
+        <li><code>str.join(iterable)</code> – объединяет элементы списка в строку через строку-разделитель</li>
+        <li><code>str.find(substring)</code> – возвращает индекс первого вхождения подстроки или -1</li>
+        <li><code>str.index(substring)</code> – аналогично find(), но вызывает ошибку, если не найдено</li>
+        <li><code>str.startswith(prefix)</code> – проверяет, начинается ли строка с указанной подстроки</li>
+        <li><code>str.endswith(suffix)</code> – проверяет, заканчивается ли строка указанной подстрокой</li>
+        <li><code>str.isdigit()</code> – возвращает True, если вся строка состоит из цифр</li>
+        <li><code>str.isalpha()</code> – возвращает True, если вся строка состоит из букв</li>
+        <li><code>str.isalnum()</code> – возвращает True, если вся строка состоит из букв и цифр</li>
+        <li><code>str.count(substring)</code> – считает количество вхождений подстроки</li>
+        <li><code>str.title()</code> – делает первую букву каждого слова заглавной</li>
+        <li><code>str.capitalize()</code> – делает первую букву строки заглавной, остальные строчные</li>
+        <li><code>str.swapcase()</code> – меняет регистр всех символов на противоположный</li>
+    </ul>
+    <pre>s = " Привет, мир! "
+print(s.strip())         # Выведет: "Привет, мир!"
+print(s.upper())         # Выведет: " ПРИВЕТ, МИР! "
+
+words = "яблоко банан груша".split()
+print(" | ".join(words))  # Выведет: "яблоко | банан | груша"
+
+s = "Hello World"
+print(s.find("W"))       # Выведет: 6
+print(s.startswith("He"))# Выведет: True
+print(s.count("l"))      # Выведет: 3
+print(s.swapcase())      # Выведет: "hELLO wORLD"</pre>
+</section>
+
+<!-- Числа -->
+<section id="numbers">
+    <h2>🔢 Числа (int, float, complex)</h2>
+    <ul>
+        <li><code>int</code> – целые числа (например: <code>5</code>)</li>
+        <li><code>float</code> – дробные числа (например: <code>3.14</code>)</li>
+        <li><code>complex</code> – комплексные числа (например: <code>2+3j</code>)</li>
+        <li><code>+</code> – сложение</li>
+        <li><code>-</code> – вычитание</li>
+        <li><code>*</code> – умножение</li>
+        <li><code>/</code> – деление (всегда возвращает float)</li>
+        <li><code>//</code> – целочисленное деление</li>
+        <li><code>%</code> – остаток от деления</li>
+        <li><code>**</code> – возведение в степень</li>
+        <li><code>abs(x)</code> – модуль числа</li>
+        <li><code>round(x, n)</code> – округление до n знаков после запятой</li>
+        <li><code>pow(a, b)</code> – возведение в степень</li>
+        <li><code>divmod(a, b)</code> – возвращает кортеж (частное, остаток)</li>
+    </ul>
+    <pre>x = 10
+y = 3
+print(x / y)     # Выведет: 3.333...
+print(x // y)    # Выведет: 3
+print(x % y)     # Выведет: 1
+print(x ** y)    # Выведет: 1000
+
+z = -5.7
+print(abs(z))    # Выведет: 5.7
+print(round(z))  # Выведет: -6</pre>
+</section>
+
+<!-- Списки -->
+<section id="lists">
+    <h2>📋 Списки (list)</h2>
+    <ul>
+        <li><code>list.append(x)</code> – добавляет элемент в конец</li>
+        <li><code>list.insert(i, x)</code> – вставляет элемент на позицию i</li>
+        <li><code>list.remove(x)</code> – удаляет первый элемент x</li>
+        <li><code>list.pop(i)</code> – удаляет и возвращает элемент по индексу</li>
+        <li><code>list.sort()</code> – сортирует список</li>
+        <li><code>list.reverse()</code> – переворачивает список</li>
+        <li><code>len(list)</code> – длина списка</li>
+        <li><code>list.index(x)</code> – возвращает индекс элемента x</li>
+        <li><code>list.count(x)</code> – возвращает количество элемента x</li>
+        <li><code>list.clear()</code> – очищает список</li>
+        <li><code>list.copy()</code> – создаёт поверхностную копию списка</li>
+        <li><code>list.extend(iterable)</code> – добавляет элементы из итерируемого объекта</li>
+    </ul>
+    <pre>fruits = ["яблоко", "банан", "груша"]
+fruits.append("апельсин")
+print(fruits)  # ['яблоко', 'банан', 'груша', 'апельсин']
+
+fruits.pop(1)
+print(fruits)  # ['яблоко', 'груша', 'апельсин']
+
+fruits.sort()
+print(fruits)  # ['апельсин', 'груша', 'яблоко']</pre>
+</section>
+
+<!-- Кортежи -->
+<section id="tuples">
+    <h2>📌 Кортежи (tuple)</h2>
+    <ul>
+        <li>Неизменяемые коллекции</li>
+        <li>Создаются через круглые скобки: <code>t = (1, 2, 3)</code></li>
+        <li>Поддерживают индексацию и срезы</li>
+        <li><code>tuple.index(x)</code> – возвращает индекс элемента x</li>
+        <li><code>tuple.count(x)</code> – возвращает количество элемента x</li>
+        <li>Можно использовать как ключ в словаре</li>
+    </ul>
+    <pre>point = (10, 20)
+x, y = point
+print(x, y)  # Выведет: 10 20
+
+coordinates = (10, 20, 10, 30)
+print(coordinates.count(10))  # Выведет: 2</pre>
+</section>
+
+<!-- Множества -->
+<section id="sets">
+    <h2>🌀 Множества (set)</h2>
+    <ul>
+        <li>Хранят уникальные элементы</li>
+        <li>Создаются через фигурные скобки или функцию <code>set()</code></li>
+        <li><code>set.add(x)</code> – добавляет элемент</li>
+        <li><code>set.remove(x)</code> – удаляет элемент (ошибка, если нет)</li>
+        <li><code>set.discard(x)</code> – удаляет элемент (без ошибки)</li>
+        <li><code>set.union(other)</code> – объединение</li>
+        <li><code>set.intersection(other)</code> – пересечение</li>
+        <li><code>set.difference(other)</code> – разность</li>
+        <li><code>set.symmetric_difference(other)</code> – симметричная разность</li>
+    </ul>
+    <pre>nums = {1, 2, 3}
+nums.add(4)
+print(nums)  # {1, 2, 3, 4}
+
+nums.discard(5)  # Не вызывает ошибку
+print(nums)  # {1, 2, 3, 4}</pre>
+</section>
+
+<!-- Словари -->
+<section id="dictionaries">
+    <h2>🗂 Словари (dict)</h2>
+    <ul>
+        <li>Хранят пары ключ-значение</li>
+        <li>Создаются через фигурные скобки: <code>d = {"name": "John"}</code></li>
+        <li><code>dict[key] = value</code> – добавление/изменение значения</li>
+        <li><code>dict.get(key)</code> – безопасное получение значения</li>
+        <li><code>dict.keys()</code>, <code>dict.values()</code>, <code>dict.items()</code> – просмотр содержимого</li>
+        <li><code>dict.pop(key)</code> – удаление и возврат значения по ключу</li>
+        <li><code>dict.update(other_dict)</code> – обновляет словарь из другого словаря</li>
+        <li><code>dict.setdefault(key, default)</code> – возвращает значение по ключу или устанавливает значение по умолчанию</li>
+        <li><code>dict.clear()</code> – очищает словарь</li>
+        <li><code>key in dict</code> – проверяет наличие ключа</li>
+    </ul>
+    <pre>user = {"name": "Alice", "age": 25}
+print(user["name"])  # Alice
+user["age"] = 26
+print(user.get("email", "Нет email"))  # Нет email
+
+user.update({"city": "Moscow"})
+print(user)  # {'name': 'Alice', 'age': 26, 'city': 'Moscow'}</pre>
+</section>
+
+<button class="theme-toggle" onclick="toggleTheme()">Переключить тему</button>
+
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle('dark');
+    }
+</script>
+
+</body>
+</html>
